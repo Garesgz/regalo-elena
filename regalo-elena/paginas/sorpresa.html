@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Elena ❤️</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body class="pagina-sorpresa">
+
+
+    <main class="sorpresa">
+
+        <section class="revelacion">
+
+
+            <p class="texto-superior aparecer">
+                ELENA
+            </p>
+
+
+            <h1 class="titulo-revelacion aparecer">
+
+                El tiempo<br>
+                nos ha traído hasta aquí.
+
+            </h1>
+
+
+            <p class="mensaje-revelacion aparecer">
+
+                Y ahora ya puedes descubrir
+                lo que estaba escondido detrás del reloj.
+
+            </p>
+
+
+            <div class="separador">
+                ✦
+            </div>
+
+
+            <!-- REGALO -->
+
+            <div class="regalo aparecer">
+
+
+                <p class="pequeno">
+                    TU REGALO ES...
+                </p>
+
+
+                <h2>
+                    UNA NOCHE<br>
+                    EN EL TEATRO
+                </h2>
+
+
+                <div class="leon">
+                    🦁
+                </div>
+
+
+                <p class="rey-leon">
+                    EL REY LEÓN
+                </p>
+
+
+                <p class="subtitulo">
+                    Teatro Lope de Vega
+                </p>
+
+
+                <!-- ENTRADA -->
+
+                <div class="entrada">
+
+
+                    <div class="entrada-cabecera">
+
+                        <span>
+                            TEATRO
+                        </span>
+
+                        <span>
+                            MADRID
+                        </span>
+
+                    </div>
+
+
+                    <div class="entrada-contenido">
+
+
+                        <div class="entrada-titulo">
+
+                            <span>
+                                EL REY
+                            </span>
+
+                            <strong>
+                                LEÓN
+                            </strong>
+
+                        </div>
+
+
+                        <div class="linea"></div>
+
+
+                        <div class="datos">
+
+
+                            <div>
+
+                                <span>
+                                    FECHA
+                                </span>
+
+                                <strong>
+                                    10 OCTUBRE
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    HORA
+                                </span>
+
+                                <strong>
+                                    21:00
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    LUGAR
+                                </span>
+
+                                <strong>
+                                    LOPE DE VEGA
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="codigo">
+
+                        ||| || |||| | ||| || |||||
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="dos-entradas">
+
+                    🎟️ 🎟️ &nbsp;
+                    Sí, son DOS entradas.
+
+                </p>
+
+
+            </div>
+
+
+            <!-- MENSAJE FINAL -->
+
+            <div class="final-amor aparecer">
+
+
+                <p>
+
+                    Espero que este regalo
+                    te guste y lo disfrutes mucho.
+
+                </p>
+
+
+                <h3>
+                    Feliz cumpleaños, amor ❤️
+                </h3>
+
+
+                <p class="firma">
+                    Te quiero
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        function crearConfeti() {
+
+            for (let i = 0; i < 80; i++) {
+
+                const confeti =
+                    document.createElement("div");
+
+
+                confeti.classList.add("confeti");
+
+
+                confeti.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                confeti.style.animationDelay =
+                    Math.random() * 3 + "s";
+
+
+                confeti.style.animationDuration =
+                    3 + Math.random() * 3 + "s";
+
+
+                document.body.appendChild(
+                    confeti
+                );
+
+            }
+
+        }
+
+
+        crearConfeti();
+
+    </script>
+
+
+</body>
+
+</html>

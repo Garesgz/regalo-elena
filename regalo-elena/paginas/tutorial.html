@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El secreto del reloj</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <main class="inicio">
+
+        <div class="contenido-inicio tutorial">
+
+
+            <p class="texto-superior">
+                EL TUTORIAL
+            </p>
+
+
+            <h1>
+                Antes de continuar...
+            </h1>
+
+
+            <p class="descripcion">
+
+                Un buen relojero debe saber leer el tiempo.
+
+                <br><br>
+
+                Pero para desbloquear este reloj,
+                primero tendrás que demostrar que
+                conoces algunas cosas importantes.
+
+            </p>
+
+
+            <!-- =================================
+                 PREGUNTA 1
+            ================================== -->
+
+            <div class="pregunta">
+
+                <p class="numero-pregunta">
+                    01
+                </p>
+
+                <h2>
+                    ¿Quién está detrás de este regalo?
+                </h2>
+
+
+                <button onclick="responder(this, true)">
+                    Jorge
+                </button>
+
+                <button onclick="responder(this, false)">
+                    Wilson
+                </button>
+
+                <button onclick="responder(this, false)">
+                    El relojero
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 PREGUNTA 2
+            ================================== -->
+
+            <div class="pregunta bloqueada">
+
+                <p class="numero-pregunta">
+                    02
+                </p>
+
+                <h2>
+                    ¿Quién es Wilson?
+                </h2>
+
+
+                <button onclick="responder(this, true)">
+                    El compañero de aventuras de cuatro patas
+                </button>
+
+                <button onclick="responder(this, false)">
+                    El nombre del reloj
+                </button>
+
+                <button onclick="responder(this, false)">
+                    Una pelota de tenis
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 PREGUNTA 3
+            ================================== -->
+
+            <div class="pregunta bloqueada">
+
+                <p class="numero-pregunta">
+                    03
+                </p>
+
+                <h2>
+                    Una última pregunta...
+                    <br>
+                    ¿qué comida nunca falla?
+                </h2>
+
+
+                <button onclick="responder(this, true)">
+                    🍣 Sushi
+                </button>
+
+                <button onclick="responder(this, false)">
+                    🥦 Brócoli
+                </button>
+
+                <button onclick="responder(this, false)">
+                    🍕 Pizza
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 MENSAJE
+            ================================== -->
+
+            <div id="mensaje" class="mensaje"></div>
+
+
+            <!-- =================================
+                 FINAL
+            ================================== -->
+
+            <div id="final" class="final-oculto">
+
+                <p class="texto-superior">
+                    RELOJ DESBLOQUEADO
+                </p>
+
+                <h2>
+                    Has pasado la prueba.
+                </h2>
+
+                <p>
+                    El tiempo está a punto
+                    de llevarte a algún sitio.
+                </p>
+
+
+                <a href="sorpresa.html" class="boton">
+                    DESCUBRIR
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        let preguntaActual = 0;
+
+
+        const preguntas =
+            document.querySelectorAll(".pregunta");
+
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+
+        const final =
+            document.getElementById("final");
+
+
+        function responder(boton, correcto) {
+
+
+            const pregunta =
+                preguntas[preguntaActual];
+
+
+            /* =================================
+               RESPUESTA INCORRECTA
+            ================================== */
+
+            if (!correcto) {
+
+                mensaje.innerHTML =
+                    "Casi... 😏 Inténtalo otra vez.";
+
+                mensaje.className =
+                    "mensaje error";
+
+
+                boton.classList.add(
+                    "respuesta-incorrecta"
+                );
+
+
+                setTimeout(() => {
+
+                    boton.classList.remove(
+                        "respuesta-incorrecta"
+                    );
+
+                }, 700);
+
+
+                return;
+            }
+
+
+            /* =================================
+               RESPUESTA CORRECTA
+            ================================== */
+
+            boton.classList.add(
+                "respuesta-correcta"
+            );
+
+
+            mensaje.innerHTML =
+                "✓ CORRECTO";
+
+
+            mensaje.className =
+                "mensaje correcto";
+
+
+            /* Marcamos la pregunta */
+
+            pregunta.classList.add(
+                "completada"
+            );
+
+
+            /* Desactivamos TODOS los botones
+               de esta pregunta */
+
+            const botones =
+                pregunta.querySelectorAll("button");
+
+
+            botones.forEach(botonRespuesta => {
+
+                botonRespuesta.disabled = true;
+
+            });
+
+
+            /* Pasamos a la siguiente */
+
+            preguntaActual++;
+
+
+            /* =================================
+               DESBLOQUEAR SIGUIENTE
+            ================================== */
+
+            if (preguntaActual < preguntas.length) {
+
+
+                setTimeout(() => {
+
+                    preguntas[preguntaActual]
+                        .classList.remove(
+                            "bloqueada"
+                        );
+
+
+                    preguntas[preguntaActual]
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+
+                }, 1000);
+
+
+            } else {
+
+
+                /* =================================
+                   TODAS COMPLETADAS
+                ================================== */
+
+                setTimeout(() => {
+
+                    mensaje.innerHTML =
+                        "✓ Has completado todas las pruebas.";
+
+
+                    final.classList.remove(
+                        "final-oculto"
+                    );
+
+
+                    final.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+
+                }, 1000);
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

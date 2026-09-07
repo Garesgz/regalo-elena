@@ -1,0 +1,1525 @@
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #050505;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ==================================================
+   PANTALLAS PRINCIPALES
+================================================== */
+
+.inicio {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #241b0c 0%,
+            #0d0b08 45%,
+            #030303 100%
+        );
+}
+
+
+.contenido-inicio {
+
+    width: 100%;
+
+    max-width: 600px;
+}
+
+
+/* ==================================================
+   TEXTOS
+================================================== */
+
+.texto-superior {
+
+    color: #d9a441;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+h1 {
+
+    font-family: "Cinzel", serif;
+
+    color: #e5b85c;
+
+    font-size: clamp(
+        42px,
+        10vw,
+        70px
+    );
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+
+.descripcion {
+
+    color: #aaa;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+.instruccion {
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    margin: 30px auto;
+}
+
+
+/* ==================================================
+   RELOJ
+================================================== */
+
+.reloj {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 260px;
+
+    margin: 0 auto;
+
+    border-radius: 50%;
+
+    border: 2px solid #d9a441;
+
+    background:
+        radial-gradient(
+            circle,
+            #17130c,
+            #080808
+        );
+
+    box-shadow:
+
+        0 0 40px
+        rgba(217, 164, 65, 0.15),
+
+        inset 0 0 30px
+        rgba(217, 164, 65, 0.08);
+}
+
+
+/* ==================================================
+   NÚMEROS DEL RELOJ
+================================================== */
+
+.numeros {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family: "Cinzel", serif;
+
+    color: #e5b85c;
+
+    font-size: 20px;
+
+    z-index: 2;
+}
+
+
+.numeros.seis {
+
+    top: auto;
+
+    bottom: 15px;
+}
+
+
+.numeros.tres {
+
+    top: 50%;
+
+    left: auto;
+
+    right: 18px;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.numeros.nueve {
+
+    top: 50%;
+
+    left: 18px;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* ==================================================
+   AGUJAS DEL RELOJ
+================================================== */
+
+.aguja {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 50%;
+
+    transform-origin:
+        bottom center;
+
+    border-radius: 10px;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.05s linear;
+}
+
+
+/* ==================================================
+   AGUJA DE LAS HORAS
+================================================== */
+
+.hora {
+
+    width: 5px;
+
+    height: 65px;
+
+    background: #e5b85c;
+
+    transform:
+        translateX(-50%)
+        rotate(0deg);
+
+    box-shadow:
+        0 0 6px
+        rgba(229, 184, 92, 0.3);
+
+    z-index: 5;
+}
+
+
+/* ==================================================
+   AGUJA DE LOS MINUTOS
+================================================== */
+
+.minuto {
+
+    width: 3px;
+
+    height: 90px;
+
+    background: #ffffff;
+
+    transform:
+        translateX(-50%)
+        rotate(0deg);
+
+    box-shadow:
+        0 0 5px
+        rgba(255, 255, 255, 0.25);
+
+    z-index: 6;
+}
+
+
+/* ==================================================
+   AGUJA DE LOS SEGUNDOS
+================================================== */
+
+.segundo {
+
+    width: 2px;
+
+    height: 100px;
+
+    background: #d9a441;
+
+    transform:
+        translateX(-50%)
+        rotate(0deg);
+
+    box-shadow:
+        0 0 8px
+        rgba(217, 164, 65, 0.5);
+
+    z-index: 7;
+}
+
+
+/* ==================================================
+   CENTRO DEL RELOJ
+================================================== */
+
+.centro {
+
+    position: absolute;
+
+    width: 13px;
+
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #e5b85c;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 10;
+
+    box-shadow:
+        0 0 8px
+        rgba(229, 184, 92, 0.4);
+}
+
+
+/* ==================================================
+   BOTONES GENERALES
+================================================== */
+
+.boton {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #151008;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9a441,
+            #f0c76b
+        );
+
+    padding:
+        15px 35px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+
+.boton:hover {
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 0 30px
+        rgba(229,184,92,0.3);
+}
+
+
+/* ==================================================
+   TUTORIAL
+================================================== */
+
+.tutorial {
+
+    max-width: 700px;
+
+    padding-bottom: 60px;
+}
+
+
+.pregunta {
+
+    margin: 45px auto;
+
+    padding: 30px;
+
+    max-width: 600px;
+
+    border:
+        1px solid
+        rgba(217, 164, 65, 0.35);
+
+    border-radius: 20px;
+
+    background:
+        rgba(20, 17, 12, 0.8);
+
+    box-shadow:
+        0 0 25px
+        rgba(217, 164, 65, 0.05);
+
+    transition: 0.4s;
+}
+
+
+.numero-pregunta {
+
+    color: #d9a441;
+
+    font-family: "Cinzel", serif;
+
+    letter-spacing: 3px;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.pregunta h2 {
+
+    font-family: "Cinzel", serif;
+
+    color: #e5b85c;
+
+    font-size: 24px;
+
+    line-height: 1.4;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   BOTONES DE RESPUESTAS
+================================================== */
+
+.pregunta button {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 14px 18px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(229, 184, 92, 0.4);
+
+    background: transparent;
+
+    color: #ddd;
+
+    font-family:
+        "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.pregunta button:hover {
+
+    background:
+        rgba(229, 184, 92, 0.1);
+
+    border-color:
+        #e5b85c;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==================================================
+   PREGUNTA BLOQUEADA
+================================================== */
+
+.pregunta.bloqueada {
+
+    opacity: 0.25;
+
+    pointer-events: none;
+
+    filter: blur(1px);
+}
+
+
+/* ==================================================
+   PREGUNTA COMPLETADA
+================================================== */
+
+.pregunta.completada {
+
+    border-color:
+        #d9a441;
+
+    opacity: 0.75;
+}
+
+
+/* ==================================================
+   RESPUESTA CORRECTA
+================================================== */
+
+.pregunta button.respuesta-correcta {
+
+    background:
+        rgba(229, 184, 92, 0.18);
+
+    border-color:
+        #e5b85c;
+
+    color:
+        #f0c76b;
+
+    box-shadow:
+        0 0 20px
+        rgba(229, 184, 92, 0.15);
+
+    transform:
+        scale(1.02);
+}
+
+
+/* ==================================================
+   RESPUESTA INCORRECTA
+================================================== */
+
+.pregunta button.respuesta-incorrecta {
+
+    border-color:
+        #8b5a3c;
+
+    color:
+        #b88970;
+
+    animation:
+        errorRespuesta 0.7s ease;
+}
+
+
+@keyframes errorRespuesta {
+
+    0% {
+        transform:
+            translateX(0);
+    }
+
+    20% {
+        transform:
+            translateX(-8px);
+    }
+
+    40% {
+        transform:
+            translateX(8px);
+    }
+
+    60% {
+        transform:
+            translateX(-5px);
+    }
+
+    80% {
+        transform:
+            translateX(5px);
+    }
+
+    100% {
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* ==================================================
+   BOTONES DESACTIVADOS
+================================================== */
+
+.pregunta button:disabled {
+
+    cursor:
+        default;
+}
+
+
+/* ==================================================
+   MENSAJES
+================================================== */
+
+.mensaje {
+
+    min-height: 30px;
+
+    margin:
+        25px auto;
+
+    font-size: 14px;
+
+    transition:
+        0.3s;
+}
+
+
+.mensaje.correcto {
+
+    color:
+        #e5b85c;
+
+    font-family:
+        "Cinzel", serif;
+
+    font-size:
+        18px;
+
+    letter-spacing:
+        2px;
+
+    animation:
+        aparecerCorrecto
+        0.5s ease;
+}
+
+
+.mensaje.error {
+
+    color:
+        #aaa;
+}
+
+
+@keyframes aparecerCorrecto {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==================================================
+   FINAL DEL TUTORIAL
+================================================== */
+
+.final-oculto {
+
+    display:
+        none;
+}
+
+
+#final {
+
+    margin-top:
+        60px;
+
+    padding:
+        40px 25px;
+
+    border-top:
+        1px solid
+        rgba(217, 164, 65, 0.3);
+
+    border-bottom:
+        1px solid
+        rgba(217, 164, 65, 0.3);
+}
+
+
+#final h2 {
+
+    font-family:
+        "Cinzel", serif;
+
+    color:
+        #e5b85c;
+
+    font-size:
+        32px;
+
+    margin:
+        15px 0;
+}
+
+
+#final p:not(.texto-superior) {
+
+    color:
+        #aaa;
+
+    margin-bottom:
+        30px;
+}
+
+
+/* ==================================================
+   PANTALLA FINAL
+================================================== */
+
+.pagina-sorpresa {
+
+    background:
+        #030303;
+}
+
+
+.sorpresa {
+
+    min-height:
+        100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #35240c 0%,
+            #120d07 30%,
+            #030303 70%
+        );
+
+    padding:
+        80px 20px;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+}
+
+
+.revelacion {
+
+    max-width:
+        850px;
+
+    margin:
+        0 auto;
+}
+
+
+.aparecer {
+
+    animation:
+        aparecer
+        1.5s ease forwards;
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==================================================
+   TÍTULO FINAL
+================================================== */
+
+.titulo-revelacion {
+
+    font-family:
+        "Cinzel", serif;
+
+    color:
+        #e5b85c;
+
+    font-size:
+        clamp(
+            38px,
+            8vw,
+            68px
+        );
+
+    line-height:
+        1.15;
+
+    margin:
+        25px 0;
+}
+
+
+.mensaje-revelacion {
+
+    color:
+        #aaa;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.8;
+
+    max-width:
+        550px;
+
+    margin:
+        0 auto;
+}
+
+
+.separador {
+
+    color:
+        #e5b85c;
+
+    font-size:
+        28px;
+
+    margin:
+        35px 0;
+}
+
+
+/* ==================================================
+   REGALO
+================================================== */
+
+.regalo {
+
+    margin-top:
+        40px;
+
+    padding:
+        55px 25px;
+
+    border:
+        1px solid
+        rgba(229, 184, 92, 0.4);
+
+    border-radius:
+        25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(45, 31, 12, 0.9),
+            rgba(10, 9, 7, 0.95)
+        );
+
+    box-shadow:
+        0 0 70px
+        rgba(229, 184, 92, 0.08);
+}
+
+
+.pequeno {
+
+    color:
+        #d9a441;
+
+    letter-spacing:
+        4px;
+
+    font-size:
+        11px;
+
+    margin-bottom:
+        20px;
+}
+
+
+.regalo h2 {
+
+    font-family:
+        "Cinzel", serif;
+
+    color:
+        #f0c76b;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            48px
+        );
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        15px;
+}
+
+
+.leon {
+
+    font-size:
+        70px;
+
+    margin:
+        15px 0;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(229,184,92,0.3)
+        );
+}
+
+
+.rey-leon {
+
+    font-family:
+        "Cinzel", serif;
+
+    color:
+        #fff;
+
+    font-size:
+        28px;
+
+    letter-spacing:
+        6px;
+
+    margin-bottom:
+        10px;
+}
+
+
+.subtitulo {
+
+    color:
+        #999;
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        35px;
+}
+
+
+/* ==================================================
+   ENTRADA
+================================================== */
+
+.entrada {
+
+    max-width:
+        650px;
+
+    margin:
+        35px auto 0;
+
+    background:
+        #f2e5c5;
+
+    color:
+        #18130b;
+
+    text-align:
+        left;
+
+    border-radius:
+        4px;
+
+    overflow:
+        hidden;
+
+    position:
+        relative;
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.5);
+
+    transform:
+        rotate(-1deg);
+
+    transition:
+        0.4s;
+}
+
+
+.entrada:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.02);
+}
+
+
+/* ==================================================
+   CABECERA DE ENTRADA
+================================================== */
+
+.entrada-cabecera {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        12px 18px;
+
+    background:
+        #15110a;
+
+    color:
+        #d9a441;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+}
+
+
+/* ==================================================
+   CONTENIDO DE ENTRADA
+================================================== */
+
+.entrada-contenido {
+
+    padding:
+        30px;
+}
+
+
+.entrada-titulo {
+
+    font-family:
+        "Cinzel", serif;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    color:
+        #20170b;
+}
+
+
+.entrada-titulo span {
+
+    font-size:
+        20px;
+
+    letter-spacing:
+        5px;
+}
+
+
+.entrada-titulo strong {
+
+    font-size:
+        48px;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        3px;
+}
+
+
+.linea {
+
+    height:
+        1px;
+
+    background:
+        #b99b5a;
+
+    margin:
+        25px 0;
+}
+
+
+/* ==================================================
+   DATOS ENTRADA
+================================================== */
+
+.datos {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+}
+
+
+.datos div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        6px;
+}
+
+
+.datos span {
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #806c43;
+}
+
+
+.datos strong {
+
+    font-size:
+        13px;
+
+    color:
+        #241b0d;
+}
+
+
+/* ==================================================
+   CÓDIGO DE BARRAS
+================================================== */
+
+.codigo {
+
+    border-top:
+        1px dashed
+        #a9915d;
+
+    padding:
+        18px;
+
+    text-align:
+        center;
+
+    font-family:
+        monospace;
+
+    letter-spacing:
+        5px;
+
+    font-size:
+        18px;
+}
+
+
+/* ==================================================
+   DOS ENTRADAS
+================================================== */
+
+.dos-entradas {
+
+    color:
+        #d9a441;
+
+    font-size:
+        14px;
+
+    margin-top:
+        30px;
+}
+
+
+/* ==================================================
+   MENSAJE FINAL
+================================================== */
+
+.final-amor {
+
+    margin-top:
+        80px;
+
+    padding-bottom:
+        40px;
+}
+
+
+.final-amor p {
+
+    color:
+        #aaa;
+
+    line-height:
+        1.8;
+
+    font-size:
+        15px;
+}
+
+
+.final-amor h3 {
+
+    font-family:
+        "Cinzel", serif;
+
+    color:
+        #e5b85c;
+
+    font-size:
+        27px;
+
+    margin:
+        20px 0;
+}
+
+
+.firma {
+
+    color:
+        #fff !important;
+
+    font-family:
+        "Cinzel", serif;
+
+    font-size:
+        20px !important;
+}
+
+
+/* ==================================================
+   CONFETI
+================================================== */
+
+.confeti {
+
+    position:
+        fixed;
+
+    top:
+        -10px;
+
+    width:
+        5px;
+
+    height:
+        12px;
+
+    background:
+        #e5b85c;
+
+    opacity:
+        0.7;
+
+    pointer-events:
+        none;
+
+    animation:
+        caer linear infinite;
+}
+
+
+@keyframes caer {
+
+    0% {
+
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity:
+            0;
+    }
+
+    10% {
+
+        opacity:
+            0.8;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:
+            0;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+================================================== */
+
+@media (max-width: 600px) {
+
+    .inicio {
+
+        padding:
+            20px 15px;
+    }
+
+
+    .contenido-inicio {
+
+        max-width:
+            100%;
+    }
+
+
+    .texto-superior {
+
+        font-size:
+            10px;
+
+        letter-spacing:
+            4px;
+
+        margin-bottom:
+            18px;
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(
+                34px,
+                10vw,
+                50px
+            );
+    }
+
+
+    .descripcion {
+
+        font-size:
+            14px;
+
+        margin-bottom:
+            28px;
+    }
+
+
+    /* RELOJ EN MÓVIL */
+
+    .reloj {
+
+        width:
+            230px;
+
+        height:
+            230px;
+    }
+
+
+    .hora {
+
+        height:
+            58px;
+    }
+
+
+    .minuto {
+
+        height:
+            78px;
+    }
+
+
+    .segundo {
+
+        height:
+            88px;
+    }
+
+
+    .numeros {
+
+        font-size:
+            18px;
+
+        top:
+            13px;
+    }
+
+
+    .numeros.seis {
+
+        bottom:
+            13px;
+    }
+
+
+    .numeros.tres {
+
+        right:
+            15px;
+    }
+
+
+    .numeros.nueve {
+
+        left:
+            15px;
+    }
+
+
+    .instruccion {
+
+        font-size:
+            13px;
+
+        margin:
+            25px auto;
+    }
+
+
+    .sorpresa {
+
+        padding:
+            55px 15px;
+    }
+
+
+    .regalo {
+
+        padding:
+            40px 15px;
+    }
+
+
+    .entrada-contenido {
+
+        padding:
+            22px 18px;
+    }
+
+
+    .entrada-titulo strong {
+
+        font-size:
+            38px;
+    }
+
+
+    .datos {
+
+        flex-direction:
+            column;
+
+        gap:
+            18px;
+    }
+
+
+    .datos div {
+
+        align-items:
+            center;
+    }
+
+
+    .rey-leon {
+
+        font-size:
+            22px;
+
+        letter-spacing:
+            4px;
+    }
+
+
+    .pregunta {
+
+        padding:
+            22px 18px;
+    }
+
+
+    .pregunta h2 {
+
+        font-size:
+            21px;
+    }
+
+}

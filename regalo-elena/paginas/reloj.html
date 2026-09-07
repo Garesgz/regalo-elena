@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El reloj</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <main class="inicio">
+
+        <div class="contenido-inicio">
+
+            <p class="texto-superior">
+                EL RELOJ
+            </p>
+
+
+            <h1>
+                El tiempo<br>
+                guarda un secreto
+            </h1>
+
+
+            <p class="descripcion">
+
+                Si has llegado hasta aquí,
+                es porque has decidido mirar más de cerca.
+
+                <br><br>
+
+                Pero antes de descubrir qué se esconde
+                detrás de este reloj...
+
+            </p>
+
+
+            <div class="reloj">
+
+                <div class="numeros">
+                    12
+                </div>
+
+                <div class="numeros seis">
+                    6
+                </div>
+
+                <div class="numeros tres">
+                    3
+                </div>
+
+                <div class="numeros nueve">
+                    9
+                </div>
+
+
+                <!-- AGUJA DE LAS HORAS -->
+                <div class="aguja hora"></div>
+
+                <!-- AGUJA DE LOS MINUTOS -->
+                <div class="aguja minuto"></div>
+
+                <!-- AGUJA DE LOS SEGUNDOS -->
+                <div class="aguja segundo"></div>
+
+                <!-- CENTRO DEL RELOJ -->
+                <div class="centro"></div>
+
+            </div>
+
+
+            <p class="instruccion">
+
+                Aprende a leerlo.
+                <br>
+                Después, el reloj te llevará al siguiente paso.
+
+            </p>
+
+
+            <a href="tutorial.html" class="boton">
+                COMENZAR
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FUNCIONAMIENTO DEL RELOJ -->
+
+    <script>
+
+        function actualizarReloj() {
+
+            const ahora = new Date();
+
+            const horas = ahora.getHours();
+            const minutos = ahora.getMinutes();
+            const segundos = ahora.getSeconds();
+            const milisegundos = ahora.getMilliseconds();
+
+
+            // --------------------------------
+            // AGUJA DE LOS SEGUNDOS
+            // --------------------------------
+
+            const gradosSegundos =
+                segundos * 6 + (milisegundos / 1000) * 6;
+
+
+            // --------------------------------
+            // AGUJA DE LOS MINUTOS
+            // --------------------------------
+
+            const gradosMinutos =
+                minutos * 6 + segundos * 0.1;
+
+
+            // --------------------------------
+            // AGUJA DE LAS HORAS
+            // --------------------------------
+
+            const gradosHoras =
+                (horas % 12) * 30 +
+                minutos * 0.5;
+
+
+            // --------------------------------
+            // APLICAMOS EL MOVIMIENTO
+            // --------------------------------
+
+            document.querySelector(".aguja.hora").style.transform =
+                `rotate(${gradosHoras}deg)`;
+
+            document.querySelector(".aguja.minuto").style.transform =
+                `rotate(${gradosMinutos}deg)`;
+
+            document.querySelector(".aguja.segundo").style.transform =
+                `rotate(${gradosSegundos}deg)`;
+
+        }
+
+
+        // Actualizar inmediatamente al abrir la página
+        actualizarReloj();
+
+
+        // Actualizar continuamente
+        setInterval(actualizarReloj, 50);
+
+    </script>
+
+
+</body>
+
+</html>
